@@ -16,7 +16,7 @@ function App() {
       </main>
       <footer className="border-t border-gray-200 py-6">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-gray-600 flex items-center justify-between">
-          <p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Wisnu. All rights reserved.</p>
           <a href="#home" className="hover:text-gray-900">Back to top ↑</a>
         </div>
       </footer>

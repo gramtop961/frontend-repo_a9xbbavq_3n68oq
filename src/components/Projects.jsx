@@ -1,4 +1,5 @@
 import { ShoppingCart, Lock, Server, Code } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const projects = [
   {
@@ -33,7 +34,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 sm:py-24 bg-gradient-to-b from-white to-slate-50">
+    <section id="projects" className="py-20 sm:py-24 bg-gradient-to-b from-white to-slate-50 scroll-mt-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">Selected Projects</h2>
@@ -41,8 +42,15 @@ export default function Projects() {
         </div>
 
         <div className="mt-10 grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map(({ icon: Icon, title, description, stack }) => (
-            <article key={title} className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+          {projects.map(({ icon: Icon, title, description, stack }, idx) => (
+            <motion.article
+              key={title}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.45, delay: idx * 0.05 }}
+              className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
+            >
               <div className="h-11 w-11 rounded-xl grid place-items-center bg-blue-50 text-blue-600">
                 <Icon className="h-5 w-5" />
               </div>
@@ -55,7 +63,7 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>
